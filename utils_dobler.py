@@ -1,16 +1,30 @@
-''' ITERATION 3
+''' ITERATION 4
 
 Module: Dobler Data - Reusable Module for My Data Analytics Projects
 
 This module provides a simple, reusable foundation for my analytics projects. 
 
 Process:
-In this third iteration, I declare additional variables to show skills with different data types.
+In this fourth iteration, I introduce some basic statistics using Python.
+    - min() is a built in function to find the smallest value passed in
+    - max() is a built in function to find the largest value passed in
+    - The statistics module offers methods to calculate mean and standard deviation.
 '''
+#####################################
+# Import Modules at the Top
+#####################################
+
+# In Python, we can import modules to add extra tools and functions.
+# Below, we're importing:
+# - 'statistics': This gives us tools to calculate things like averages.
+# Use CTRL F and type statistics to see where it is used in the code. 
+# Did you find statistics.mean()?
+# Did you find statistics.stdev()?
+
+import statistics
 
 #####################################
-# Declare global variables - keep byline at the end 
-# We will use this information in a smarter byline 
+# Declare global variables 
 #####################################
 
 # Boolean variable to indicate if the company has internation clients
@@ -44,6 +58,32 @@ top_bat_speeds_after_training: list = [61.2, 63.6, 62.9, 65.1, 65.7]
 top_bat_speeds_change: list = [1.4, 1.2, 1.1, 1.7, 1.6]
 
 #####################################
+# Calculate Basic Statistics 
+#   Do this BEFORE we declare the byline
+#   so the values have been calculated
+#   and are ready for use in the byline.
+#####################################
+
+#Calculate basic stats using built-in functions min(), max(), and statistics module functions mean() and stdev()
+min_score: float = min(client_satisfaction_scores)
+max_score: float = max(client_satisfaction_scores)
+mean_score: float = statistics.mean(client_satisfaction_scores)
+stdev_score: float = statistics.stdev(client_satisfaction_scores)
+
+min_bat_speed_before: float = min(top_bat_speeds_before_training)
+max_bat_speed_before: float = max(top_bat_speeds_before_training)
+mean_bat_speed_before: float = statistics.mean(top_bat_speeds_before_training)
+stdev_bat_speed_before: float = statistics.stdev(top_bat_speeds_before_training)
+
+min_bat_speed_after: float = min(top_bat_speeds_after_training)
+max_bat_speed_after: float = max(top_bat_speeds_after_training)
+mean_bat_speed_after: float = statistics.mean(top_bat_speeds_after_training)
+stdev_bat_speed_after: float = statistics.stdev(top_bat_speeds_after_training)
+
+mean_bat_speed_change: float = statistics.mean(top_bat_speeds_change)
+stdev_bat_speed_change: float = statistics.stdev(top_bat_speeds_change)
+
+#####################################
 # Declare a global variable named byline.
 # Make it a multiline f-string to show our information.
 #####################################
@@ -52,17 +92,33 @@ byline: str = f"""
 ---------------------------------------------------
 Dobler Data: Delivering Baseball Insights
 ---------------------------------------------------
-Has International Clients:      {has_international_clients}
-Years in Operation:             {years_in_operation}
-Highest Grossing Locations:     {highest_grossing_locations}
-Has Multiple Languages Offered: {multiple_languages_offered}
-Skills Offered:                 {skills_offered}
-Client Satisfaction Scores:     {client_satisfaction_scores}
-Players Per Session:            {players_per_session}
-Top Bat Speeds Before Training: {top_bat_speeds_before_training}
-Top Bat Speeds After Training:  {top_bat_speeds_after_training}
-Top Bat Speeds Change:          {top_bat_speeds_change}
+Has International Clients:                  {has_international_clients}
+Years in Operation:                         {years_in_operation}
+Highest Grossing Locations:                 {highest_grossing_locations}
+Players Per Session:                        {players_per_session}
+Has Multiple Languages Offered:             {multiple_languages_offered}
+Skills Offered:                             {skills_offered}
+Client Satisfaction Scores:                 {client_satisfaction_scores}
+Minimum Satisfaction Score:                 {min_score}
+Maximum Satisfaction Score:                 {max_score}
+Average Satisfaction Score:                 {mean_score:.2f}
+Standard Deviation of Satisfaction Scores:  {stdev_score:.2f}
 
+Top Bat Speeds Before Training:                  {top_bat_speeds_before_training}
+Minimum Bat Speed Before Training:               {min_bat_speed_before}
+Maximum Bat Speed Before Training:               {max_bat_speed_before}
+Average Bat Speed Before Training:               {mean_bat_speed_before:.2f}
+Standard Deviation of Bat Speed Before Training: {stdev_bat_speed_before:.2f}
+
+Top Bat Speeds After Training:                    {top_bat_speeds_after_training}
+Minimum Bat Speeds After Training:                {min_bat_speed_after}
+Maximum Bat Speeds After Training:                {max_bat_speed_after}
+Average Bat Speeds After Training:                {mean_bat_speed_after:.2f}
+Standard Deviation of Bat Speeds After Training:  {stdev_bat_speed_after:.2f}
+
+Top Bat Speeds Change:                   {top_bat_speeds_change}
+Mean Bat Speed Change:                   {mean_bat_speed_change:.2f}
+Standard Deviation of Bat Speed Change:  {stdev_bat_speed_change:.2f}
 """
 
 #####################################
